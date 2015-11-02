@@ -1,0 +1,18 @@
+body {
+	width:45%;
+	margin: 2em auto;
+}
+
+.main {
+	font-size:0.75em;
+}
+
+.routes {
+	display: inline;
+	margin:1em;
+	color:black;
+}
+
+.loading {
+	text-align: center;
+}

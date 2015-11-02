@@ -1,0 +1,27 @@
+<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1' class="main-wrapper">
+
+	<h1>NgInfinite-Scroll</h1>
+  <span data-tooltip aria-haspopup="true" class="has-tip" title="This directive handles the issue with lazy loading. It's very easy to implement, but what it does not however do is making sure the performance does not worsen as more and more content is being added to the page." class="icon icon-info">
+    <i class="fa fa-info-circle"></i>
+  </span>
+
+  <a href="https://binarymuse.github.io/ngInfiniteScroll/">Reference</a>
+
+  <hr>
+
+  <div ng-repeat='item in reddit.items' >
+    <span style="color:red">{{ $index }}.</span>
+  	<span class='score'>{{item.score}}</span>
+  	<span class='title'>
+  	  <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
+  	</span>
+  	<small>by {{item.author}} -
+  	  <a ng-href='http://reddit.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>
+  	</small>
+    <hr class="ng-hide" id="{{$index}}">
+  	<div style='clear: both;'></div>
+  </div>
+  <div ng-show='reddit.busy' class="loading">
+    <div class="spinner-loader"> Loading...</div>
+  </div>
+</div>
