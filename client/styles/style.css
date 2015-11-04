@@ -9,10 +9,60 @@ body {
 
 .routes {
 	display: inline;
-	margin:1em;
 	color:black;
+	text-align: center;
+}
+
+.analysis {
+	float: left !important;
 }
 
 .loading {
 	text-align: center;
 }
+
+#legend {
+	position: fixed;
+}
+
+ul li {
+	list-style: none;
+}
+
+#legend ul li canvas {
+	margin-bottom: -2px;
+}
+
+.has_tip:hover {
+	color: red;
+}
+
+#title {
+	text-align: center;
+}
+
+#appended_divs {
+	position: fixed;
+	top: 0;
+	right: 58%;
+}
+
+.dropdown {
+	border: 1px solid lightgray;
+	background: white;
+	color:black;
+	width: 100%;
+}
+
+.dropdown.button::after {
+	display: none !important;
+}
+
+.fa {
+	margin-left:1.6em;
+}
+
+#dd li a:hover {
+	background: lightgray;
+}
+

@@ -13,6 +13,7 @@ var morgan = require('morgan');
 var ejs = require('ejs');
 var path = require('path');
 var setup = require('./config/setup');
+var async = require('async');
 var router = express.Router();
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,15 +29,23 @@ app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname + '../..', 'client')));
 
 // Application routes
-function route(url, uri){
-  router.get(url, function(req, res){
+function routeFile(url, uri) {
+  router.get(url, function(req, res) {
     res.sendFile(path.resolve(uri));
   });
 };
 
-route('/', 'client/index.html');
+function routeJson(url, json) {
+	router.get(url, function(req, res) {
+		res.jsonp(json);
+	})
+}
 
+routeFile('/', 'client/index.html');
 app.use('/', router);
+
+routeFile('/solution3', 'client/partials/solution3.html');
+app.use('/solution3', router);
 
 
 server.listen(config.port, function() {

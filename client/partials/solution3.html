@@ -1,6 +1,62 @@
-<h1>NgScroller</h1>
-<a href="http://ngscroller.herokuapp.com/">Reference</a>
-<hr>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Infinite Scrolling POC</title>
+	<base href="/">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.css" />
+	<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+	<link rel="stylesheet" href="styles/style.css"/>
+	<link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body ng-app="is">
+	<div class="row" style='text-align:center'>
+		<a class="routes columns small-12 large-3" href="/#/solution1">Solution 1</a>
+		<a class="routes columns small-12 large-3" href="/#/solution2">Solution 2</a>
+		<a class="routes columns small-12 large-3" href="/solution3" id="danger">Solution 3</a>
+		<a class="routes columns small-12 large-3 analysis" href="/#/analysis">Analysis</a>
+	</div>
+	<hr>
+	<div ng-app="is" ng-controller="solution3Controller">
+		<h1>NgScroller</h1>
 
-<p>  What this solution does is cache any "unused" items, based on a limit predefined by the developer, from the array iterated over with ng-repeat. Therefore, it loads scroll upwards and downwards based upon how many items are in the DOM.</p>
-<p>  This may be a good option in theory, but the Twitter example on the demo heroku webpage seems a bit buggy.</p>
+		<a href="http://ngscroller.herokuapp.com/">Reference</a>
+		<hr>
+
+		<div class="content" ng-scroller="content">
+			<ul class="list" ng-scroller-repeat="item in items">
+				<li>{{ item.text }} {{ item.id }}</li>
+			 </ul>
+		</div>
+	</div>
+</body>
+
+<!-- vendor -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+<script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+
+<!-- main -->
+<script src="js/app.js"></script>
+
+<!-- directives -->
+<script src="js/directives/ngInfiniteScroll.js"></script>
+<script src="js/directives/angular-inview.js"></script>
+<script src="js/directives/ngScroller.min.js"></script>
+
+<!-- factories/services -->
+<script src="js/factories/redditFactory.js"></script>
+<script src="js/services/githubApiService.js"></script>
+
+<!-- controllers -->
+<script src="js/controllers/solution1Controller.js"></script>
+<script src="js/controllers/solution2Controller.js"></script>
+<script src="js/controllers/solution3Controller.js"></script>
+<script src="js/controllers/analysisController.js"></script>
+
+
+</html>

@@ -29,13 +29,14 @@ is.directive('infiniteScroll', [
           });
         }
 
-        handler = function() {
+        handler = function() {          
           var elementBottom, remaining, shouldScroll, windowBottom;
           windowBottom = $window.height() + $window.scrollTop();
           elementBottom = elem.offset().top + elem.height();
           remaining = elementBottom - windowBottom;
           shouldScroll = remaining <= $window.height() * scrollDistance;
           if (shouldScroll && scrollEnabled) {
+            // this is where the callback is evaluated
             if ($rootScope.$$phase) {
               return scope.$eval(attrs.infiniteScroll);
             } else {
@@ -45,8 +46,6 @@ is.directive('infiniteScroll', [
             return checkWhenEnabled = true;
           }
         };
-
-        console.log(handler());
 
         $window.on('scroll', handler);
         scope.$on('$destroy', function() {

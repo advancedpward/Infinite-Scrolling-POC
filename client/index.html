@@ -5,35 +5,80 @@
 	<title>Infinite Scrolling POC</title>
 	<base href="/">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.css" />
+	<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
 	<link rel="stylesheet" href="styles/style.css"/>
 	<link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
+<div id="appended_divs"></div>
 <body ng-app="is">
-	<div>
-		<a class="routes" href="/#/solution1">Solution 1</a>
-		<a class="routes" href="/#/solution2">Solution 2</a>
-		<a class="routes" href="/#/solution3">Solution 3</a>
-		<a class="routes" href="/#/comparison">Analysis</a>
+	<div id="menu_small" class="ng-hide">
+	  <a class="button dropdown" dropdown-toggle="#dd"><i class="fa fa-bars"></i></a>
+	  <ul id="dd" class="f-dropdown">
+	    <li><a class="routes columns small-12 large-3" href="/#/solution1">Solution 1</a></li>
+		<li><a class="routes columns small-12 large-3" href="/#/solution2">Solution 2</a></li>
+		<li><a class="routes columns small-12 large-3 has_tip" tooltip-popup-delay="0" href="/solution3" data-tooltip aria-haspopup="true" class="has-tip" title="Click at your own risk. The following page will crash your browser." id="danger">Solution 3</a></li>
+		<li><a class="routes columns small-12 large-3 analysis" href="/#/analysis">Analysis</a></li>
+	  </ul>
 	</div>
+	<ul id="menu_large" class="row" style='text-align:center'>
+		<li><a class="routes columns small-12 large-3" href="/#/solution1">Solution 1</a></li>
+		<li><a class="routes columns small-12 large-3" href="/#/solution2">Solution 2</a></li>
+		<li><a class="routes columns small-12 large-3 has_tip" tooltip-popup-delay="0" href="/solution3" data-tooltip aria-haspopup="true" class="has-tip" title="Click at your own risk. The following page will crash your browser." id="danger">Solution 3</a></li>
+		<li><a class="routes columns small-12 large-3 analysis" href="/#/analysis">Analysis</a></li>
+	</ul>
 	<hr>
 	<div id="ngView" ng-view></div>
 </body>
 
+<!-- vendor -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/Chart.js/Chart.js"></script>
-<script src="bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js"></script>
+<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+<script src="bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
 
+<!-- main -->
 <script src="js/app.js"></script>
+
+<!-- directives -->
 <script src="js/directives/ngInfiniteScroll.js"></script>
 <script src="js/directives/angular-inview.js"></script>
+<script src="js/directives/ngScroller.min.js"></script>
+
+<!-- factories/services -->
 <script src="js/factories/redditFactory.js"></script>
+<script src="js/services/githubApiService.js"></script>
+
+<!-- controllers -->
 <script src="js/controllers/solution1Controller.js"></script>
 <script src="js/controllers/solution2Controller.js"></script>
-<script src="js/controllers/comparisonController.js"></script>
+<script src="js/controllers/solution3Controller.js"></script>
+<script src="js/controllers/analysisController.js"></script>
 
-
+<script>
+	$(window).resize(function() {
+		var size = $('html').outerWidth();
+		if(size <= 1030) {
+			$('#menu_large').addClass('ng-hide');
+			$('#menu_small').removeClass('ng-hide');
+		} else {
+			$('#menu_large').removeClass('ng-hide');
+			$('#menu_small').addClass('ng-hide');
+		}
+	})
+	$(window).load(function() {
+		var size = $('html').outerWidth();
+		if(size <= 1030) {
+			$('#menu_large').addClass('ng-hide');
+			$('#menu_small').removeClass('ng-hide');
+		} else {
+			$('#menu_large').removeClass('ng-hide');
+			$('#menu_small').addClass('ng-hide');
+		}
+	})
+</script>
 
 </html>

@@ -3,6 +3,7 @@
 <hr>
 <div in-view-container class="container" >
 	<div ng-repeat="item in reddit.items track by $index | limitTo: limit ">
+		<span style="color:red">{{ $index }}.</span>
 		<span class='score'>{{item.score}}</span>
 	  	<span class='title'>
 	  	  <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
