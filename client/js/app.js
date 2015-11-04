@@ -1,4 +1,4 @@
-var is = angular.module('is', ['ngRoute', 'angular-inview', 'ngScroller', 'chart.js', 'mm.foundation']);
+var is = angular.module('is', ['ngRoute', 'angular-inview', 'ngScroller', 'chart.js', 'mm.foundation', 'angular-memory-stats']);
 
 is.config(function($routeProvider, $locationProvider) {
 	$routeProvider

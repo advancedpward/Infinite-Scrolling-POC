@@ -5,10 +5,8 @@ is.factory('Reddit', function($http) {
     this.extraItems = [];
     this.busy = false;
     this.after = '';
-    this.ticker = 0;
   };
   Reddit.prototype.nextPage = function() {
-    this.ticker++;
     console.log(this.ticker + ' APIs calls made');
     if (this.busy) return;
     this.busy = true

@@ -2,7 +2,7 @@
 <a href="https://github.com/thenikso/angular-inview">Reference</a>
 <hr>
 <div in-view-container class="container" >
-	<div ng-repeat="item in reddit.items track by $index | limitTo: limit ">
+	<div ng-repeat="item in reddit.items track by $index | limitTo: limit " class="repeated_items">
 		<span style="color:red">{{ $index }}.</span>
 		<span class='score'>{{item.score}}</span>
 	  	<span class='title'>

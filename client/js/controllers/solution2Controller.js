@@ -1,4 +1,5 @@
 is.controller('solution2Controller', function($scope, $timeout, Reddit) {
+
 	$scope.reddit = new Reddit();
 	$scope.limit = 50;
 	$scope.increaseLimit = function (increases) {
@@ -9,4 +10,6 @@ is.controller('solution2Controller', function($scope, $timeout, Reddit) {
 			}, 0)
 		}
 	}
+
+	
 });
