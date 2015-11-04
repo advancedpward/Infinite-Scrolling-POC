@@ -66,3 +66,6 @@ ul li {
 	background: lightgray;
 }
 
+.has-tip {
+	border-bottom: none !important;
+}
