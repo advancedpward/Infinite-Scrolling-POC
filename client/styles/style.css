@@ -50,6 +50,10 @@ ul li {
 	text-align: center;
 }
 
+#title img {
+	width:25%;
+}
+
 #appended_divs {
 	position: fixed;
 	top: 0;
